@@ -1,16 +1,6 @@
-#include <iostream>
+#include "Search_Tree.h"
 
-struct Search_Tree
-{
-	int key;
-	int count;
-	std::string data;
-
-
-	Search_Tree* left = nullptr;
-	Search_Tree* right = nullptr;
-};
-
+/*
 std::string Random_string()
 {
 	std::string temp_str = "";
@@ -22,7 +12,7 @@ std::string Random_string()
 	}
 	return temp_str;
 }
-
+*/
 
 
 void Add_Node(Search_Tree*& pCurrent, int key)
@@ -173,5 +163,15 @@ void symmetric(Search_Tree* current, int count)
 		}
 		std::cout << current->key << std::endl;
 		symmetric(current->right, count + 1);
+	}
+}
+
+void show_in_line(Search_Tree* current)
+{
+	if (current != nullptr)
+	{
+		show_in_line(current->left);
+		std::cout << current->key <<"(" << current->count << ") ";
+		show_in_line(current->right);
 	}
 }
